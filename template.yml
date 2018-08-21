@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Parameters:
+  AppEnv:
+    Description: lambda runtime environment available value dev,test,staging,prod
+    Type: String
+    Default: test
+    MinLength: 1
+  LogLevel:
+    Description: Logging level
+    Type: String
+    Default: "INFO"
+Resources:
+  EchoLambda:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      CodeUri: ./src
+      Runtime: python3.6
+      Timeout: 180
+      Handler: sample.handler_echo
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref AppEnv
+          LOGLEVEL: !Ref LogLevel
+      Events:
+        FrugalbotIntake:
+          Type: Api
+          Properties:
+            Path: /
+            Method: post
