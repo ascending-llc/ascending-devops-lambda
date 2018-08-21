@@ -14,7 +14,7 @@
 ## Python Dependences
 
 #### dependency
-	pip install -r requirements.txt -t .
+	pip install -r ./src/requirements.txt -t ./src
 	
 #### dev  dependency
 	source local-env
@@ -25,3 +25,6 @@
 
 ### Run lambda
     LogLevel=INFO sam local invoke "EchoLambda" -e events/sample.json
+	
+## Build
+    make build
