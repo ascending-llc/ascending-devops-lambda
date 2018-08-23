@@ -4,7 +4,8 @@ verify_ssl = true
 name = 'pypi'
 
 [requires]
-python_version = "> 3.6"
+python_version = "3.6.1"
 
 [dev-packages]
 boto3 = ">=1.7.80"
+aws-sam-cli = ">=0.5.0"

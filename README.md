@@ -18,13 +18,13 @@
 	
 #### dev  dependency
 	source local-env
-    pipenv install
+    pipenv install --dev
 	
 #### dev dependency activate
     pipenv shell
 
 ### Run lambda
-    LogLevel=INFO sam local invoke "EchoLambda" -e events/sample.json
+    LOGLEVEL=INFO sam local invoke "EchoLambda" -e events/sample.json
 	
 ## Build
     make build
